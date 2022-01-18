@@ -1,12 +1,10 @@
 package ru.vorobev.interview.homework_01.task_02;
 
-import com.sun.xml.internal.ws.api.pipe.Engine;
 
-abstract class Car {
-	public Engine engine;
+abstract class Car implements Movable, Stoppable {
+	private Engine engine;
 	private String color;
 	private String name;
-	
 	
 	protected void start() {
 		System.out.println("Car starting");

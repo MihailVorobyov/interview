@@ -1,6 +1,6 @@
 package ru.vorobev.interview.homework_01.task_02;
 
-class LightWeightCar extends Car implements Moveable {
+class LightWeightCar extends Car {
 	
 	@Override
 	void open() {
@@ -9,7 +9,11 @@ class LightWeightCar extends Car implements Moveable {
 	
 	@Override
 	public void move() {
-		System.out.println("Car is moving");
+		System.out.println("Car is moving fast");
 	}
 	
+	@Override
+	public void stop() {
+		System.out.println("Car is stop fast");
+	}
 }
