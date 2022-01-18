@@ -1,0 +1,6 @@
+1. Нет класса Engine
+2. Интерфейс Moveable (переименован в Movable)
+3. Интерфейс Stopable (переименован в Stoppable)
+4. Класс Car не реализует интерфейсы Movable и Stoppable, а Lorry и LightWeightCar реализуют
+5. class Lorry extends Car, Movable, Stoppable -> интерфейсы пишутся после ключевого слова implements
+6. class Car: public Engine engine -> private Engine engine
