@@ -1,8 +1,6 @@
 package ru.vorobev.interview.homework_05.dao;
 
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Order;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import ru.vorobev.interview.homework_05.entities.Student;
 
 import java.util.ArrayList;
@@ -11,10 +9,16 @@ import java.util.Random;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class StudentDaoImplTest {
 	
 	private static StudentDaoImpl studentDao = new StudentDaoImpl();
-
+	
+	@BeforeAll
+	static void prepareTable() {
+		Preparer.prepare();
+	}
+	
 	// get test
 	
 	@Test
