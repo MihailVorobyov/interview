@@ -4,10 +4,11 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 import ru.vorobev.spring.entities.Student;
 
+import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface StudentsRepository extends CrudRepository<Student, Long> {
+public interface StudentRepository extends CrudRepository<Student, Long> {
 	
 	@Override
 	<S extends Student> S save(S entity);
@@ -16,11 +17,10 @@ public interface StudentsRepository extends CrudRepository<Student, Long> {
 	Optional<Student> findById(Long aLong);
 	
 	@Override
-	Iterable<Student> findAll();
+	List<Student> findAll();
 	
 	@Override
 	void deleteById(Long aLong);
 	
-	@Override
-	void delete(Student entity);
+	
 }

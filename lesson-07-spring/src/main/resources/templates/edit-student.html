@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Students</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+</head>
+<body>
+<a type="button" th:href="@{/students}">Студенты</a>
+<a type="button" th:href="@{/students/add}">Добавить студента</a>
+<div>
+    <div>
+        <div>
+            <div>
+                <h3>Изменить студента</h3>
+            </div>
+            <form th:action="@{/students/edit}"
+                  th:object="${studentToEdit}" method="post">
+                <input th:field="*{id}" th:value="${studentToEdit.id}" hidden>
+                <input th:field="*{name}" th:value="${studentToEdit.name}" placeholder="name (*)" type="text"/>
+                <input th:field="*{age}" th:value="${studentToEdit.age}" placeholder="age (*)" type="number"/>
+                <input type="submit">
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Students</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="panel panel-default">
+            <div class="panel-heading form-group">
+                <div><h3>Студенты</h3></div>
+                <div class="list-inline">
+                    <form th:action="@{/students/add}"
+                          th:object="${newStudent}"
+                          th:method="post">
+                        <input th:field="*{name}" placeholder="name (*)" type="text"/>
+                        <input th:field="*{age}" placeholder="age (*)" type="number"/>
+                        <input type="submit" value="Добавить">
+                    </form>
+                </div>
+            </div>
+
+            <table class="table table-fixed">
+                <thead>
+                <tr>
+                    <th class="col-xs-2">Id</th>
+                    <th class="col-xs-8">Имя</th>
+                    <th class="col-xs-2">Возраст</th>
+                    <th class="col-xs-2"></th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="student : ${studentList}">
+                        <td th:text="${student.id}" class="col-xs-2"/>
+                        <td th:text="${student.name}" class="col-xs-8"/>
+                        <td th:text="${student.age}" class="col-xs-2"/>
+                        <td class="col-xs-2">
+                            <form th:action="@{/students/delete}"
+                                  method="post">
+                                <button type="submit" name="idToDelete" th:value="${student.id}">Удалить</button>
+                            </form>
+                            <form th:action="@{/students/edit}" method="get">
+                                <button type="submit" name="idToEdit" th:value="${student.id}">Изменить</button>
+                            </form>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

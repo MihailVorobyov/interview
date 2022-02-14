@@ -14,7 +14,7 @@
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
-        <spring.boot.version>2.6.3</spring.boot.version>
+        <spring.boot.version>2.6.2</spring.boot.version>
     </properties>
     <dependencies>
         <dependency>
@@ -29,6 +29,11 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jdbc</artifactId>
+            <version>${spring.boot.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
             <version>${spring.boot.version}</version>
         </dependency>
@@ -37,6 +42,13 @@
             <artifactId>spring-boot-autoconfigure</artifactId>
             <version>${spring.boot.version}</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-configuration-processor -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <version>${spring.boot.version}</version>
+        </dependency>
+
     </dependencies>
 
 </project>

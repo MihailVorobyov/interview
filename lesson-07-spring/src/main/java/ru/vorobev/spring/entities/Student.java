@@ -1,25 +1,27 @@
 package ru.vorobev.spring.entities;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.sun.istack.NotNull;
+import lombok.*;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
-@Data
-@NoArgsConstructor
 @Table(name = "students")
-public class Student {
+@Data
+public class Student implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "student_id")
+	@Column(name = "id")
 	private Long id;
 	
-	@Column(name = "name")
+	@Column(name = "full_name")
+	@NotNull
 	private String name;
 	
 	@Column(name = "age")
+	@NotNull
 	private int age;
 	
 }
